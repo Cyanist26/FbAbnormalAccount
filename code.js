@@ -1,23 +1,23 @@
-//³õÊ¼»¯¸÷±í¸ñ
+ï»¿//åˆå§‹åŒ–å„è¡¨æ ¼
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 var Facebook = ss.getSheetByName("Facebook");
 var ui = SpreadsheetApp.getUi();
 
-//Ìí¼Ó¹¦ÄÜ²Ë†Î
+//æ·»åŠ åŠŸèƒ½èœå–®
 function onOpen() {
   SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
   .createMenu('FTOFS') 
-  .addItem('®³£Ù~Ì–Ìá½»','showabnAccDialog')
+  .addItem('ç•°å¸¸è³¬è™Ÿæäº¤','showabnAccDialog')
   .addToUi();
 }
 
-//Ìí¼Óadd-on²Ë†Î
+//æ·»åŠ add-onèœå–®
 //function onOpen(e) {
 //  var menu = ui.createAddonMenu(); // Or DocumentApp or FormApp.
 //  if (e && e.authMode == ScriptApp.AuthMode.NONE)
 //  {
 //    // Add a normal menu item (works in all authorization modes).
-//    menu.addItem('®³£Ù~Ì–Ìá½»','showabnAccDialog');
+//    menu.addItem('ç•°å¸¸è³¬è™Ÿæäº¤','showabnAccDialog');
 //  } 
 //  else
 //  {
@@ -26,11 +26,11 @@ function onOpen() {
 //    var workflowStarted = properties.getProperty('workflowStarted');
 //    if (workflowStarted)
 //    {
-//      menu.addItem('®³£Ù~Ì–Ìá½»','showabnAccDialog');
+//      menu.addItem('ç•°å¸¸è³¬è™Ÿæäº¤','showabnAccDialog');
 //    } 
 //    else 
 //    {
-//      menu.addItem('®³£Ù~Ì–Ìá½»','showabnAccDialog');
+//      menu.addItem('ç•°å¸¸è³¬è™Ÿæäº¤','showabnAccDialog');
 //    }
 //     //Record analytics.
 //     //UrlFetchApp.fetch('http://www.example.com/analytics?event=open');
@@ -38,29 +38,29 @@ function onOpen() {
 //  menu.addToUi();
 //}
 
-//®³£Ù~Ì–Ìá½»Œ¦Ô’¿ò
+//ç•°å¸¸è³¬è™Ÿæäº¤å°è©±æ¡†
 function showabnAccDialog(){
-  //®”Ç°ÎÄ¼şŸoFacebook±í„tˆóåe
+  //ç•¶å‰æ–‡ä»¶ç„¡Facebookè¡¨å‰‡å ±éŒ¯
   if (Facebook == null)
   {
-    ui.alert('®”Ç°ÎÄ¼şÖĞ²»´æÔÚFacebookÙ~Ì–±í¸ñ£¡\nÕˆÔÚÙ~Ì–±íÖĞÊ¹ÓÃ±¾²å¼ş£¡');
+    ui.alert('ç•¶å‰æ–‡ä»¶ä¸­ä¸å­˜åœ¨Facebookè³¬è™Ÿè¡¨æ ¼ï¼\nè«‹åœ¨è³¬è™Ÿè¡¨ä¸­ä½¿ç”¨æœ¬æ’ä»¶ï¼');
   }
   else
   {
   var html = HtmlService.createHtmlOutputFromFile('abnormalAccount')
       .setWidth(400)
       .setHeight(200);
-  SpreadsheetApp.getUi().showModalDialog(html, '®³£Ù~Ì–Ìá½»');
+  SpreadsheetApp.getUi().showModalDialog(html, 'ç•°å¸¸è³¬è™Ÿæäº¤');
   }
 }
 
-//´_ÕJÌá½»Œ¦Ô’¿ò
+//ç¢ºèªæäº¤å°è©±æ¡†
 function showConfirmAlert(accID,typevalue,note){
   var AccID = accID;
   if (AccID == '')
     {
-    //ui.alert('Ù~Ì–¾Ì–²»ÄÜé¿Õ£¡\nÕˆÖØĞÂÌîŒ‘Õı´_µÄÙ~Ì–¾Ì–£¡');
-    var noAccID = ui.alert('Ù~Ì–¾Ì–²»ÄÜé¿Õ','°´¡°È·¶¨¡±ÖØĞÂÊäÈë±àºÅ£¡',ui.ButtonSet.OK);
+    //ui.alert('è³¬è™Ÿç·¨è™Ÿä¸èƒ½ç‚ºç©ºï¼\nè«‹é‡æ–°å¡«å¯«æ­£ç¢ºçš„è³¬è™Ÿç·¨è™Ÿï¼');
+    var noAccID = ui.alert('è³¬è™Ÿç·¨è™Ÿä¸èƒ½ç‚ºç©º','æŒ‰â€œç¡®å®šâ€é‡æ–°è¾“å…¥ç¼–å·ï¼',ui.ButtonSet.OK);
     if (noAccID == ui.Button.OK)
       showabnAccDialog();
     }
@@ -71,7 +71,7 @@ function showConfirmAlert(accID,typevalue,note){
   var Info = getInfo(accID);
     if(Info == null)
     {
-      var AccIDerror = ui.alert('Ù~Ì–¾Ì–åeÕ`','²»´æÔÚÔ“Ù~Ì–\n°´¡°È·¶¨¡±ÖØĞÂÊäÈë±àºÅ£¡',ui.ButtonSet.OK);
+      var AccIDerror = ui.alert('è³¬è™Ÿç·¨è™ŸéŒ¯èª¤','ä¸å­˜åœ¨è©²è³¬è™Ÿ\næŒ‰â€œç¡®å®šâ€é‡æ–°è¾“å…¥ç¼–å·ï¼',ui.ButtonSet.OK);
       if (AccIDerror == ui.Button.OK)
         showabnAccDialog(); 
     }
@@ -83,7 +83,7 @@ function showConfirmAlert(accID,typevalue,note){
       var Name = Info[3];
       var Type = Info[4];
       
-      var response = ui.alert('Õˆ´_ÕJĞèÒªÌá½»µÄÙ~Ì–ĞÅÏ¢£¡','¾Ì–£º'+AccID+'\nÊ¹ÓÃÕß£º'+User+'\nÙ~Ì–ĞÕÃû£º'+Name+'\n î‘B£º'+Status+'\nîĞÍ£º'+Type+'\n‚äÔ]£º'+Note+'\n\n°´¡°·ñ¡±ÖØĞÂİ”Èë¾Ì–¡£',ui.ButtonSet.YES_NO); 
+      var response = ui.alert('è«‹ç¢ºèªéœ€è¦æäº¤çš„è³¬è™Ÿä¿¡æ¯ï¼','ç·¨è™Ÿï¼š'+AccID+'\nä½¿ç”¨è€…ï¼š'+User+'\nè³¬è™Ÿå§“åï¼š'+Name+'\nç‹€æ…‹ï¼š'+Status+'\né¡å‹ï¼š'+Type+'\nå‚™è¨»ï¼š'+Note+'\n\næŒ‰â€œå¦â€é‡æ–°è¼¸å…¥ç·¨è™Ÿã€‚',ui.ButtonSet.YES_NO); 
       if (response == ui.Button.YES)
         abnormalAccount(AccID,User,Name,department,Status,Type,Note,Row);
       else 
@@ -92,7 +92,7 @@ function showConfirmAlert(accID,typevalue,note){
   }
 }
 
-//¸ù“ş½o¶¨µÄ±í¼°…¢”µ£¬²éÕÒŒ¦‘ªĞĞ
+//æ ¹æ“šçµ¦å®šçš„è¡¨åŠåƒæ•¸ï¼ŒæŸ¥æ‰¾å°æ‡‰è¡Œ
 function find(value){
   var ARange = Facebook.getRange("A2:A");
   var data = ARange.getValues();
@@ -107,7 +107,7 @@ function find(value){
   return null;
 }
 
-//«@È¡Ù~Ì–Ô”¼šĞÅÏ¢
+//ç²å–è³¬è™Ÿè©³ç´°ä¿¡æ¯
 function getInfo(accID){
   var Row = find(accID);
   if(Row == null)
@@ -127,14 +127,14 @@ function getInfo(accID){
 }
 
 
-//Ìá½»®³£Ù~Ì–
+//æäº¤ç•°å¸¸è³¬è™Ÿ
 function abnormalAccount(accID,user,name,department,status,type,note,row){
   var abnFB = SpreadsheetApp.openById("1WXMf-2VEGxvJLZgLtIJWkYaLUm3cN0-43qTBKsbAvgY");
-  var FacebookHost = abnFB.getSheetByName("Facebook®³£Ù~Ì–");
+  var FacebookHost = abnFB.getSheetByName("Facebookç•°å¸¸è³¬è™Ÿ");
   
   if(FacebookHost == null)
   {
-    ui.alert('ááÅ_®³££¡\nÕˆÂ“ÀMIT²¿¡£');
+    ui.alert('å¾Œè‡ºç•°å¸¸ï¼\nè«‹è¯ç¹«ITéƒ¨ã€‚');
   }
   else
   {
@@ -147,8 +147,8 @@ function abnormalAccount(accID,user,name,department,status,type,note,row){
   if(tempnote == '')
     Facebook.getRange(row, 11).setValue(note + submitdate);
   else
-    Facebook.getRange(row, 11).setValue(note+submitdate+'£¬'+tempnote);
+    Facebook.getRange(row, 11).setValue(note+submitdate+'ï¼Œ'+tempnote);
    
-  ui.alert('Ìá½»³É¹¦£¡\n¿ÉÔÚ®³£Ù~Ì–ÁĞ±íÖĞ²éÔƒÌÀí î‘B¡£');
+  ui.alert('æäº¤æˆåŠŸï¼\nå¯åœ¨ç•°å¸¸è³¬è™Ÿåˆ—è¡¨ä¸­æŸ¥è©¢è™•ç†ç‹€æ…‹ã€‚');
   } 
 }
