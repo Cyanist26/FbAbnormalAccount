@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<base target="_top">
+		<link rel="stylesheet" type="text/css" href="https://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+		<script>
+			function recasset(){
+                var accID = document.getElementById("accID").value;
+                var type = document.getElementById("type");
+				var typeid = type.selectedIndex;
+				var typevalue = type.options[typeid].text;
+				var note = document.getElementById("note").value;
+                google.script.run.showConfirmAlert(accID,typevalue,note);
+                google.script.host.close();
+			}
+		</script>
+	</head>
+
+	<body>
+		<table class="am-table am-table-radius am-table-bordered am-table-striped am-table-compact">
+			<tr>
+				<td class="am-text-right">賬號編號</td>
+				<td><input type="text" id="accID" /></td>
+			</tr>
+			<tr>
+				<td class="am-text-right">異常類型：</td>
+				<td>
+					<select id="type">
+						<option>輸生日</option>
+						<option>認頭像</option>
+						<option>手機驗證</option>
+						<option selected="selected">上傳身份證</option>
+						<option>其他(見備註)</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="am-text-right">備註：</td>
+				<td><input type="text" id="note" /></td>
+			</tr>
+		</table>
+		<button type="button" class="am-btn am-btn-secondary" onclick="recasset()" style="float:right;">提交處理</button>
+	</body>
