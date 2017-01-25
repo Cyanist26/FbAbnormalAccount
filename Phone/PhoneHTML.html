@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<base target="_top">
+		<link rel="stylesheet" type="text/css" href="https://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+		<script>
+			function recasset(){
+                var num = document.getElementById("NumID").value;
+                var code = document.getElementById("code").value;
+                var recDate = document.getElementById("recDate").value;
+                var expDate = document.getElementById("expDate").value;
+                var amount = document.getElementById("amount").value;
+                var balance = document.getElementById("balance").value;
+                google.script.run.addRecord(num,code,recDate,expDate,amount,balance);
+                google.script.host.close();
+			}
+		</script>
+	</head>
+
+	<body>
+		<table class="am-table am-table-radius am-table-bordered am-table-striped am-table-compact">
+			<tr>
+				<td class="am-text-right">號碼編號</td>
+				<td><input type="text" id="NumID" /></td>
+			</tr>
+            <tr>
+				<td class="am-text-right">充值卡密碼</td>
+				<td><input type="text" id="code" /></td>
+			</tr>
+            <tr>
+				<td class="am-text-right">充值日期</td>
+				<td><input type="date" id="recDate" /></td>
+			</tr>
+            <tr>
+				<td class="am-text-right">到期日期</td>
+				<td><input type="date" id="expDate" /></td>
+			</tr>
+			<tr>
+				<td class="am-text-right">充值金額</td>
+				<td><input type="text" id="amount" /></td>
+			</tr>
+            <tr>
+				<td class="am-text-right">餘額</td>
+				<td><input type="text" id="balance" /></td>
+			</tr>
+		</table>
+		<button type="button" class="am-btn am-btn-secondary" onclick="recasset()" style="float:right;">添加记录</button>
+	</body>
